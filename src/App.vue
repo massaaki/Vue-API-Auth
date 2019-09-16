@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <div>Auth with Api</div>
     <div>{{$store.state.foo}}</div>
+
+    <router-view></router-view>
   </div>
 </template>
 
