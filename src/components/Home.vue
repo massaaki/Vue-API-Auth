@@ -1,7 +1,6 @@
 <template>
   <div>
     <h3>Logado</h3>
-    <router-link to="/logout">Logout</router-link>
   </div>
 </template>
 
