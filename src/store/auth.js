@@ -1,17 +1,25 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import axios from 'axios';
 
 Vue.use(Vuex)
+axios.defaults.baseURL = "http://auth_api.test/api";
 
 export const auth = new Vuex.Store({
     state: {
-        foo: "bar"
+        foo: ""
     },
     mutations: {
-        increment(state) {
-            state.count++;
+        setFoo(state, payload) {
+            state.foo = payload;
         }
     },
-    actions: {},
+    actions: {
+        getFoo(context) {
+            axios.get('/foo').then(response => {
+                context.commit("setFoo", response.data);
+            }).catch(error => {});
+        }
+    },
     getters: {}
 })
